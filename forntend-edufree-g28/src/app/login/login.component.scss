@@ -1,0 +1,26 @@
+.cls-container{
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+    form{
+        width: 300px;
+        background: #fff;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+
+    }
+
+
+.cls-image-bg{
+    top: 0;
+    position: fixed;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    }
+}

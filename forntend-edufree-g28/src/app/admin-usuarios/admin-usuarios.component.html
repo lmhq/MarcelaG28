@@ -1,0 +1,89 @@
+<!-- <p>Administrador usuarios</p> -->
+
+<div *ngIf="servicioBackend.autorized; else templateNoAutorized">
+
+    <div class="my-4">
+
+        <div class="d-flex flex-row">
+            <i class="fas fa-camera"></i>
+            <label class="mx-2" for="">Seleccione tipo de usuario:</label>
+            <select class="mx-2" name="" id="" [(ngModel)]="tipo">
+                <option [value]="option.codigo" *ngFor="let option of tiposDeUsuarios">
+                    {{option.texto}}
+                </option>
+
+            </select>
+
+            <button class="mx-2" type="button" class="btn btn-success">Filtrar</button>
+            <button class="mx-2" type="button" class="ms-2 btn btn-warning" (click)="abrirFormulario()">
+                Crear
+                usuarios</button>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="my-4" *ngIf="openModalCrear" [formGroup]="formGroupUsuario">
+
+        <h3>Formulario usuario</h3>
+
+        <div class="d-flex flex-row">
+            <div class="mb-3 me-3">
+                <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="correo"
+                    placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="nombre"
+                    placeholder="">
+            </div>
+
+            <button type="button" class="ms-2 btn btn-warning cls-boton-guardar"
+                (click)="modoFormulario == 'adicion' ? crearUsuario() : editarUsuario()">Guardar</button>
+
+            <button *ngIf="modoFormulario == 'edicion'" type="button" class="ms-2 btn btn-secondary cls-boton-guardar"
+                (click)="cambiarModoAdicion()">Cancelar</button>
+
+
+        </div>
+
+    </div>
+
+    <div>
+        <table class="table table-striped table-hover">
+             <thead>
+                <td>Nombre usuario</td>
+                <td>Correo</td>
+                <td>Tipo</td>
+                <td>Acciones</td>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let usuario of listaUsuarios">
+                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.correo}}</td>
+                    <td>{{usuario.tipo}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary me-3"
+                            (click)="entrarModoEdicion(usuario)">Editar</button>
+
+                        <button type="button" class="btn btn-danger"
+                            (click)="eliminarUsuario(usuario.id)">Eliminar</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<ng-template #templateNoAutorized>
+
+    <h1>No estás autorizado</h1>
+
+</ng-template>

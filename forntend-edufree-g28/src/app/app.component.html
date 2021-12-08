@@ -1,0 +1,76 @@
+<header class="cls-header">
+
+    <nav class="navbar navbar-dark bg-dark px-4">
+        <!-- Navbar content -->
+        <h6>Universidad Libre</h6>
+
+        <div class= "d-flex flex-row">
+
+            <button *ngIf="servicioBackend.isAutenticate" (click)="cerrarSesion()" type="button"
+                class="btn btn-light">Cerrar sesión</button>
+        </div>
+        
+    </nav>
+</header>
+
+<div class="d-flex flex-row" id="id-login" style="overflow: hidden; height: calc(100vh - 110px);">
+
+    <div *ngIf="servicioBackend.isAutenticate"
+        class="cls-sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap" />
+            </svg>           
+            <span class="fs-4">Sidebar</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item cls-item" routerLink="/admin-usuarios">
+                <a class="nav-link active" aria-current="page">                  
+                    <i class="fa fa-user me-2"></i>
+                    Gestión usuarios
+                </a>
+            </li>
+            <li class="cls-item" routerLink="/programas-en-oferta">
+                <a class="nav-link text-white">                  
+                    <i class="fa fa-university me-2"></i>                    
+                    Programas en oferta
+                </a>
+            </li>
+
+
+        </ul>
+        <hr>
+        <div class="dropdown">
+            <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>Perfil</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item">New project...</a></li>
+                <li><a class="dropdown-item">Settings</a></li>
+                <li><a class="dropdown-item">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item">Sign out</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="px-5 py-3 cls-body">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>
+
+<footer class="bg-light text-center text-lg-start cls-footer">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+

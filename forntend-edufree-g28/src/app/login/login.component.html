@@ -1,0 +1,28 @@
+<div class="cls-container">
+
+    <img src="/assets/images/login.jpg" alt="" class="cls-image-bg">
+
+    <form class="p-4" [formGroup] = "formLogin">
+
+        <h1>{{titulo}}</h1>
+
+        <div class="mb-3">
+          <label class="form-label">Correo</label>
+          <input formControlName="correo" type="email" class="form-control" 
+              id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div class="form-text" *ngIf="!formLogin.controls.correo.value">Campo requerido</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Contraseña</label>
+          <input formControlName="contrasenia" type="password" 
+              class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Aceptar términos y condiciones</label>
+        </div>
+        <button [disabled]="!formLogin.valid" 
+          (click)="login()" type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+</div>

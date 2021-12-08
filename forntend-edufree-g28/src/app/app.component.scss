@@ -1,0 +1,25 @@
+.cls-footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+}
+
+.cls-header{
+    h6{
+        color: #fff
+    }
+}
+
+.cls-sidebar {
+    height: calc(100vh - 110px);
+
+    .cls-item{
+        cursor: pointer;
+    }
+}
+
+.cls-body {
+    width: 100%;
+    overflow-y: auto;
+}
